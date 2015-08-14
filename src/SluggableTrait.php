@@ -359,7 +359,8 @@ trait SluggableTrait {
     public function generatePath()
     {
         $config = $this->getSluggableConfig();
-
+        $path_url = null;
+        
         if ($config['generate_path'] == true) {
             $array_path = array_reverse(array_merge([$this->getSlug()], $this->getParent()));
             $path_url = '/' . implode('/', $array_path);
