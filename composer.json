@@ -1,10 +1,14 @@
 {
-	"name": "cviebrock/eloquent-sluggable",
+	"name": "rolies106/eloquent-sluggable",
 	"description": "Easy creation of slugs for your Eloquent models in Laravel",
 	"keywords": ["laravel","eloquent","slug"],
-	"homepage": "https://github.com/cviebrock/eloquent-sluggable",
+	"homepage": "https://github.com/rolies106/eloquent-sluggable",
 	"license": "MIT",
 	"authors": [
+		{
+			"name": "Rolies Deby",
+			"email": "rolies106@gmail.com"
+		},
 		{
 			"name": "Colin Viebrock",
 			"email": "colin@viebrock.ca"
@@ -23,7 +27,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Cviebrock\\EloquentSluggable\\": "src/"
+			"Rolies106\\EloquentSluggable\\": "src/"
 		}
 	},
 	"minimum-stability": "dev"
