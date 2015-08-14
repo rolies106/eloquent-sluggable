@@ -2,10 +2,10 @@
 
 Easy creation of slugs for your Eloquent models in Laravel 5.
 
-[![Build Status](https://travis-ci.org/cviebrock/eloquent-sluggable.svg)](https://travis-ci.org/cviebrock/eloquent-sluggable)
-[![Total Downloads](https://poser.pugx.org/cviebrock/eloquent-sluggable/downloads.png)](https://packagist.org/packages/cviebrock/eloquent-sluggable)
-[![Latest Stable Version](https://poser.pugx.org/cviebrock/eloquent-sluggable/v/stable.png)](https://packagist.org/packages/cviebrock/eloquent-sluggable)
-[![Latest Stable Version](https://poser.pugx.org/cviebrock/eloquent-sluggable/v/unstable.png)](https://packagist.org/packages/cviebrock/eloquent-sluggable)
+[![Build Status](https://travis-ci.org/rolies106/eloquent-sluggable.svg)](https://travis-ci.org/rolies106/eloquent-sluggable)
+[![Total Downloads](https://poser.pugx.org/rolies106/eloquent-sluggable/downloads.png)](https://packagist.org/packages/rolies106/eloquent-sluggable)
+[![Latest Stable Version](https://poser.pugx.org/rolies106/eloquent-sluggable/v/stable.png)](https://packagist.org/packages/rolies106/eloquent-sluggable)
+[![Latest Stable Version](https://poser.pugx.org/rolies106/eloquent-sluggable/v/unstable.png)](https://packagist.org/packages/rolies106/eloquent-sluggable)
 
 * [Background](#background)
 * [Installation and Requirements](#installation)
@@ -60,7 +60,7 @@ The **Eloquent-Sluggable** package for Laravel 5 will handle all of this for you
 First, you'll need to require the package with Composer:
 
 ```bash
-$ composer require cviebrock/eloquent-sluggable
+$ composer require rolies106/eloquent-sluggable
 ```
 
 > **NOTE**: Eloquent-Sluggable now uses traits, so you will need to be running PHP 5.4 or higher. If you are still using 5.3, then use the "1.*" version and follow the instructions in that version's README.md file.
@@ -72,7 +72,7 @@ Then, update `config/app.php` by adding an entry for the service provider.
 ```php
 'providers' => [
     // ...
-    'Cviebrock\EloquentSluggable\SluggableServiceProvider',
+    'Rolies106\EloquentSluggable\SluggableServiceProvider',
 ];
 ```
 
@@ -84,8 +84,8 @@ Finally, from the command line again, run `php artisan vendor:publish` to publis
 Your models should implement Sluggable's interface and use it's trait. You should also define a protected property `$sluggable` with any model-specific configurations (see [Configuration](#config) below for details):
 
 ```php
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+use Rolies106\EloquentSluggable\SluggableInterface;
+use Rolies106\EloquentSluggable\SluggableTrait;
 
 class Post extends Model implements SluggableInterface
 {
@@ -162,7 +162,7 @@ This is basically a wrapper for `Post::where('slug-field','=','my-slug')->first(
 
 Configuration was designed to be as flexible as possible. You can set up defaults for all of your Eloquent models, and then override those settings for individual models.
 
-By default, global configuration can be set in the `app/config/sluggable.php` file. If a configuration isn't set, then the package defaults from `vendor/cviebrock/eloquent-sluggable/config/sluggable.php` are used. Here is an example configuration, with all the default settings shown:
+By default, global configuration can be set in the `app/config/sluggable.php` file. If a configuration isn't set, then the package defaults from `vendor/rolies106/eloquent-sluggable/config/sluggable.php` are used. Here is an example configuration, with all the default settings shown:
 
 ```php
 return [
@@ -277,7 +277,7 @@ In the section titled 'Bind Important Interfaces' add the following:
 ```php
     $app->singleton(
         'router',
-        '\Cviebrock\EloquentSluggable\SluggableRouter'
+        '\Rolies106\EloquentSluggable\SluggableRouter'
     );
 ```
 
