@@ -20,8 +20,6 @@ Easy creation of slugs for your Eloquent models in Laravel 5.
 
 > **NOTE** If you are using Laravel 4, then use the `2.x` branch or tagged `2.*` releases. Currently, `master` is only tested against Laravel 5.*.
 
-
-<a name="background"></a>
 ## Background: What is a slug?
 
 A slug is a simplified version of a string, typically URL-friendly. The act of "slugging" a string usually involves converting it to one case, and removing any non-URL-friendly characters (spaces, accented letters, ampersands, etc.). The resulting string can then be used as an indentifier for a particular resource.
@@ -53,8 +51,6 @@ This keeps URLs unique.
 
 The **Eloquent-Sluggable** package for Laravel 5 will handle all of this for you automatically, with minimal configuration at the start.
 
-
-<a name="installation"></a>
 ## Installation and Requirements
 
 First, you'll need to require the package with Composer:
@@ -78,7 +74,6 @@ Then, update `config/app.php` by adding an entry for the service provider.
 
 Finally, from the command line again, run `php artisan vendor:publish` to publish the default configuration file.
 
-<a name="eloquent"></a>
 ## Updating your Eloquent Models
 
 Your models should implement Sluggable's interface and use it's trait. You should also define a protected property `$sluggable` with any model-specific configurations (see [Configuration](#config) below for details):
@@ -115,9 +110,6 @@ Be sure to set your model's `save_to` configuration to match the column name.
 
 That's it ... your model is now "sluggable"!
 
-
-
-<a name="usage"></a>
 ## Using the Class
 
 Saving a model is easy:
@@ -155,9 +147,6 @@ $post = Post::findBySlug('my-slug');
 
 This is basically a wrapper for `Post::where('slug-field','=','my-slug')->first()`.  If your slugs aren't unique, then use the `getBySlug()` method which will return an Eloquent collection.
 
-
-
-<a name="config"></a>
 ## Configuration
 
 Configuration was designed to be as flexible as possible. You can set up defaults for all of your Eloquent models, and then override those settings for individual models.
@@ -267,8 +256,6 @@ A boolean. If it is `false` (the default value), then slugs will not be updated 
 
 An array of values that will never be allowed as slugs, e.g. to prevent collisions with existing routes or controller methods, etc.. This can be an array, or a closure that returns an array. Defaults to `null`: no reserved slug names.
 
-
-<a name="route-model"></a>
 ##Route-model Binding
 
 To start retrieving Models using the slug or the Id, you can update `/bootstap/app.php` by adding an entry to override the router.
@@ -293,7 +280,6 @@ or
     Post::findBySlugOrIdOrFail('slug-or-id');
 ```
 
-<a name="extending"></a>
 ## Extending Sluggable
 
 Sometimes the configuration options aren't sufficient for complex needs (e.g. maybe the uniqueness test needs to take other attributes into account, or maybe you need to make two slugs for the same model).
@@ -334,10 +320,6 @@ Returns all existing slugs that are "similar" to the given one. Should return an
 
 Writes the (generated, valid, and unique) slug to the model's attributes.
 
-
-
-
-<a name="bugs"></a>
 ## Bugs, Suggestions and Contributions
 
 Thanks to [everyone](/cviebrock/eloquent-sluggable/graphs/contributors) who has contributed to this project!
@@ -355,9 +337,6 @@ Please use Github for bugs, comments, suggestions.
 
 **Please note that you must create your pull request against the `master` branch for fixes to the version compatible with Laravel 5.  If you are working on Laravel 4 support, use the `2.x` branch.**
 
-
-
-<a name="copyright"></a>
 ## Copyright and License
 
 Eloquent-Sluggable was written by Colin Viebrock and released under the MIT License. See the LICENSE file for details.
