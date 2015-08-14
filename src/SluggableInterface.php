@@ -1,5 +1,6 @@
-<?php namespace Cviebrock\EloquentSluggable;
+<?php 
 
+namespace Rolies106\EloquentSluggable;
 
 interface SluggableInterface {
 

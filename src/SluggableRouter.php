@@ -1,4 +1,6 @@
-<?php namespace Cviebrock\EloquentSluggable;
+<?php 
+
+namespace Rolies106\EloquentSluggable;
 
 use Illuminate\Routing\Router;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;

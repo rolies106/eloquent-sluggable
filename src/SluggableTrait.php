@@ -1,4 +1,6 @@
-<?php namespace Cviebrock\EloquentSluggable;
+<?php 
+
+namespace Rolies106\EloquentSluggable;
 
 use Cocur\Slugify\Slugify;
 use Illuminate\Support\Collection;
@@ -7,7 +9,7 @@ use Illuminate\Support\Collection;
 /**
  * Class SluggableTrait
  *
- * @package Cviebrock\EloquentSluggable
+ * @package Rolies106\EloquentSluggable
  */
 trait SluggableTrait {
 

@@ -1,4 +1,6 @@
-<?php namespace Cviebrock\EloquentSluggable;
+<?php 
+
+namespace Rolies106\EloquentSluggable;
 
 use Illuminate\Database\Console\Migrations\BaseCommand;
 use Illuminate\Foundation\Composer;
