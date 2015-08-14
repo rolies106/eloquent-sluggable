@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace Rolies106\EloquentSluggable;
 
 use Cocur\Slugify\Slugify;
 use Illuminate\Support\Collection;
-
+use Illuminate\Routing\UrlGenerator;
 
 /**
  * Class SluggableTrait
@@ -252,6 +252,7 @@ trait SluggableTrait {
 	 * @return $this
 	 */
 	public function sluggify($force = false) {
+
 		if ($force || $this->needsSlugging()) {
 			$source = $this->getSlugSource();
 			$slug = $this->generateSlug($source);
@@ -260,6 +261,8 @@ trait SluggableTrait {
 			$slug = $this->makeSlugUnique($slug);
 
 			$this->setSlug($slug);
+
+            $this->generatePath();
 		}
 
 		return $this;
@@ -348,4 +351,75 @@ trait SluggableTrait {
 
 		return self::findBySlug($slug);
 	}
+
+    /**
+     * Generate current slug path
+     * @return [type] [description]
+     */
+    public function generatePath()
+    {
+        $config = $this->getSluggableConfig();
+
+        if ($config['generate_path'] == true) {
+            $array_path = array_reverse(array_merge([$this->getSlug()], $this->getParent()));
+            $path_url = '/' . implode('/', $array_path);
+
+            if ($config['path_with_domain'] == true)
+                $path_url = url('/') . trim($path_url, '/');
+
+            $this->setPath($path_url);
+        }
+
+        return $path_url;
+    }
+
+    /**
+     * Set path to column
+     * @param string $path_string Generated path string
+     */
+    public function setPath($path_string)
+    {
+        $config = $this->getSluggableConfig();
+        $path = $config['path_column'];
+        $this->setAttribute($path, $path_string);
+    }
+
+    /**
+     * Get path from column
+     * @return string
+     */
+    public function getPath()
+    {
+        $config = $this->getSluggableConfig();
+        $path = $config['path_column'];
+        return $this->getAttribute($path);
+    }
+
+    /**
+     * Get parent
+     *
+     * @param   object  $current     Current record object
+     * @return  string  parent slug
+     */
+    public function getParent($current = null)
+    {
+
+        $current = (empty($current)) ? $this : $current;
+        $config = $this->getSluggableConfig();
+
+        $array_parent = [];
+
+        if ($config['is_tree']) {
+            $parent = $this->{$config['parent_relation']};
+
+            if (!empty($parent)) {
+                $array_parent = array_merge([$parent->getSlug()]);
+
+                if (!empty($parent->getParent()))
+                    $array_parent = array_merge($array_parent, $parent->getParent());
+            }
+        }
+
+        return $array_parent;
+    }
 }

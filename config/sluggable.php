@@ -121,21 +121,41 @@ return [
     'generate_path' => false,
 
     /**
+     * Path column at your table
+     */
+    'path_column' => 'path',
+
+    /**
      * Add domain at the beginning of path?
-     */ 
+     */
     'path_with_domain' => false,
 
     /**
-     * Add domain at the beginning of path?
-     */ 
-    'is_category' => false,
+     * Add suffix for your path slug (coming soon)
+     *
+     * can contain array contain table column name or raw string, if array it'll get value from your table column,
+     * if string then it'll be concate raw to path
+     */
+    'path_suffix' => null,
 
     /**
-     * Did you save slug for categories? 
-     * If so then it'll automatically build full path with parent categories included, e.g :
+     * Add suffix for your path slug (coming soon)
+     *
+     * can contain array contain table column name or raw string, if array it'll get value from your table column,
+     * if string then it'll be concate raw to path
+     */
+    'path_prefix' => null,
+
+    /**
+     * Did you save path for tree?
+     * If so then it'll automatically build full path with parent included, e.g :
      *
      * - http://www.domain.name/first-parent/child-parent/{prefix}current-slug{suffix}
-     */ 
-    'is_category' => false,
-    'parent_id_column' => 'parent_id',
+     */
+    'is_tree' => false,
+
+    /**
+     * Relation functions to parent record
+     */
+    'parent_relation' => 'parent',
 ];

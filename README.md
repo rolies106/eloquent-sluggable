@@ -17,7 +17,6 @@ Easy creation of slugs for your Eloquent models in Laravel 5.
 * [Bugs, Suggestions and Contributions](#bugs)
 * [Copyright and License](#copyright)
 
-
 > **NOTE** If you are using Laravel 4, then use the `2.x` branch or tagged `2.*` releases. Currently, `master` is only tested against Laravel 5.*.
 
 ## Background: What is a slug?
@@ -87,8 +86,13 @@ class Post extends Model implements SluggableInterface
 	use SluggableTrait;
 
 	protected $sluggable = [
-		'build_from' => 'title',
-		'save_to'    => 'slug',
+		'build_from' 		=> 'title',
+		'save_to'    		=> 'slug',
+        'generate_path' 	=> true, // Generate path to save to table
+        'path_with_domain' 	=> false, // Include domain in path
+        'is_tree' 			=> true, // Generate path for tree e.g categories
+        'parent_relation' 	=> 'parent', // Function for relation to parent
+        'path_column' 		=> 'path' // Column where path will be saved
 	];
 
 }
@@ -322,7 +326,7 @@ Writes the (generated, valid, and unique) slug to the model's attributes.
 
 ## Bugs, Suggestions and Contributions
 
-Thanks to [everyone](/cviebrock/eloquent-sluggable/graphs/contributors) who has contributed to this project!
+Thanks to [everyone](/rolies106/eloquent-sluggable/graphs/contributors) who has contributed to this project!
 
 Please use Github for bugs, comments, suggestions.
 
@@ -339,6 +343,6 @@ Please use Github for bugs, comments, suggestions.
 
 ## Copyright and License
 
-Eloquent-Sluggable was written by Colin Viebrock and released under the MIT License. See the LICENSE file for details.
+Eloquent-Sluggable was originally written by Colin Viebrock and forked by me (@rolies106) to meets my needs, and released under the MIT License. See the LICENSE file for details.
 
-Copyright 2013 Colin Viebrock
+Copyright 2015 Rolies Deby

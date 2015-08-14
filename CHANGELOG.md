@@ -1,5 +1,9 @@
 # Change Log
 
+## 3.1.0 - 14-Aug-2015
+
+- Add path generator to generate path based on slug and save it to table column by @rolies106
+
 ## 3.0.0 - 06-Jul-2015
 
 - Don't increment unique suffix if slug is unchanged (#108 thanks @kkiernan)
