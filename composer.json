@@ -27,7 +27,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Rolies106\\EloquentSluggable\\": "src/"
+			"Rolies106\\EloquentSluggable\\": "src"
 		}
 	},
 	"minimum-stability": "dev"

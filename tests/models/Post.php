@@ -1,7 +1,7 @@
 <?php
 
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
+use Rolies106\EloquentSluggable\SluggableInterface;
+use Rolies106\EloquentSluggable\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 
 

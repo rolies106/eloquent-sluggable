@@ -50,7 +50,7 @@ class SluggableTest extends TestCase {
 	 * @return array
 	 */
 	protected function getPackageProviders($app) {
-		return ['Cviebrock\EloquentSluggable\SluggableServiceProvider'];
+		return ['Rolies106\EloquentSluggable\SluggableServiceProvider'];
 	}
 
 	/**
