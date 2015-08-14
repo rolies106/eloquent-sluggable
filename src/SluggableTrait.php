@@ -415,8 +415,8 @@ trait SluggableTrait {
             if (!empty($parent)) {
                 $array_parent = array_merge([$parent->getSlug()]);
 
-                if (!empty($parent->getParent()))
-                    $array_parent = array_merge($array_parent, $parent->getParent());
+                if ($getParent = $parent->getParent())
+                    $array_parent = array_merge($array_parent, $getParent);
             }
         }
 
